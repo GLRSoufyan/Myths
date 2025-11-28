@@ -1,0 +1,358 @@
+import React, { useEffect, useState } from 'react';
+
+export default function LakesOfEternalLonging() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className="w-full min-h-screen bg-black overflow-x-hidden">
+      {/* Portrait container: 1080x1920 aspect ratio */}
+      <div className="w-full max-w-[1080px] mx-auto relative min-h-screen">
+        
+        {/* Animated stars background */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute animate-twinkle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 2}s`
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20">
+                <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="#fbbf24" opacity="0.8" />
+              </svg>
+            </div>
+          ))}
+        </div>
+
+        {/* Main content card with gradient border */}
+        <div className="relative m-8 rounded-[40px] overflow-hidden" 
+             style={{
+               background: 'linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6, #06b6d4)',
+               padding: '6px'
+             }}>
+          
+          {/* Inner content area */}
+          <div className="rounded-[36px] overflow-hidden" 
+               style={{
+                 background: 'linear-gradient(180deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)'
+               }}>
+            
+            {/* Title banner */}
+            <div className="relative mx-8 mt-8 mb-12 rounded-3xl overflow-hidden"
+                 style={{
+                   background: 'linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6, #06b6d4)',
+                   padding: '4px',
+                   transform: 'perspective(400px) rotateX(5deg)'
+                 }}>
+              <div className="bg-gradient-to-br from-blue-600 to-blue-500 rounded-[22px] px-8 py-6 flex items-center gap-4">
+                {/* Star decorations */}
+                <svg width="30" height="30" viewBox="0 0 20 20" className="animate-spin-slow">
+                  <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="#fbbf24" />
+                </svg>
+                <h1 className="text-4xl font-bold text-yellow-300 text-center flex-1"
+                    style={{ 
+                      textShadow: '0 0 20px rgba(252, 211, 77, 0.5)',
+                      fontFamily: 'Arial, sans-serif',
+                      letterSpacing: '0.05em'
+                    }}>
+                  The Lakes of Eternal Longing
+                </h1>
+                <svg width="24" height="24" viewBox="0 0 20 20">
+                  <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="#fbbf24" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Story sections */}
+            <div className="px-12 pb-20 space-y-16">
+              
+              {/* Introduction */}
+              <div className="animate-fadeIn">
+                <p className="text-white text-lg leading-relaxed mb-6">
+                  In days when Nice was ruled by noble families and stern tradition, there lived 
+                  a young woman named <span className="text-yellow-300 font-semibold">Estelle Beaumont</span>. 
+                  As the single daughter, she belonged to Lord Beaumont, the powerful merchant who 
+                  controlled the lavender trade along the Mediterranean coast.
+                </p>
+                <p className="text-white text-lg leading-relaxed">
+                  Estelle was said to be of legendary beauty, but her heart yearned for something 
+                  more than the golden cage of her father's estate.
+                </p>
+              </div>
+
+              {/* Decorative divider */}
+              <div className="flex justify-center gap-3 my-8">
+                {[...Array(5)].map((_, i) => (
+                  <div key={i} className="w-2 h-2 rounded-full bg-yellow-300 animate-pulse" 
+                       style={{ animationDelay: `${i * 0.2}s` }} />
+                ))}
+              </div>
+
+              {/* The Bodyguard */}
+              <div className="animate-slideUp" style={{ animationDelay: '0.2s' }}>
+                <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-6">
+                  <h2 className="text-3xl font-bold text-yellow-300 mb-4"
+                      style={{ fontFamily: 'Arial, sans-serif' }}>
+                    The Guardian
+                  </h2>
+                  <p className="text-white text-lg leading-relaxed">
+                    Afraid of rivals and thieves, her father had assigned her a bodyguard to watch 
+                    over his precious daughter. The guard was <span className="text-yellow-300 font-semibold">Matthieu</span>, 
+                    a strong young man from the farming villages in the mountains, who comported 
+                    himself with quiet dignity despite his humble origins.
+                  </p>
+                </div>
+                <p className="text-white text-lg leading-relaxed">
+                  Day after day, Matthieu shadowed Estelle through the gardens on the estate, and 
+                  slowly, their eyes began to meet for moments longer than propriety allowed.
+                </p>
+              </div>
+
+              {/* Heart animation */}
+              <div className="flex justify-center my-12">
+                <svg width="120" height="120" viewBox="0 0 100 100" className="animate-heartbeat">
+                  <path d="M50,85 C50,85 15,60 15,40 C15,25 25,15 35,15 C42.5,15 47.5,20 50,25 C52.5,20 57.5,15 65,15 C75,15 85,25 85,40 C85,60 50,85 50,85 Z"
+                        fill="#ec4899"
+                        style={{ filter: 'drop-shadow(0 0 10px rgba(236, 72, 153, 0.6))' }} />
+                </svg>
+              </div>
+
+              {/* The Meeting */}
+              <div className="animate-slideUp" style={{ animationDelay: '0.4s' }}>
+                <div className="bg-gradient-to-br from-purple-600/30 to-pink-600/30 backdrop-blur-sm rounded-3xl p-8 border-2 border-purple-400/50">
+                  <p className="text-white text-xl leading-relaxed italic text-center">
+                    "I do not want a bodyguard. I want a companion who sees me, not my father's gold."
+                  </p>
+                </div>
+                <p className="text-white text-lg leading-relaxed mt-6">
+                  Matthieu's heart at once broke and soared. "My lady, I am but the son of a farmer. 
+                  Your father would have me hanged for having heard such words."
+                </p>
+                <p className="text-yellow-300 text-lg leading-relaxed mt-4 font-semibold">
+                  But love is like wildfire on dry summer grass; it doesn't ask permission to burn.
+                </p>
+              </div>
+
+              {/* Two Lakes illustration */}
+              <div className="flex justify-center gap-8 my-16">
+                <div className="relative">
+                  <div className="w-40 h-24 rounded-full bg-cyan-400/60 animate-ripple" 
+                       style={{ filter: 'blur(8px)' }} />
+                  <div className="absolute inset-0 w-40 h-24 rounded-full bg-cyan-300/40" 
+                       style={{ filter: 'blur(4px)' }} />
+                </div>
+                <div className="relative">
+                  <div className="w-40 h-24 rounded-full bg-cyan-400/60 animate-ripple" 
+                       style={{ filter: 'blur(8px)', animationDelay: '1s' }} />
+                  <div className="absolute inset-0 w-40 h-24 rounded-full bg-cyan-300/40" 
+                       style={{ filter: 'blur(4px)' }} />
+                </div>
+              </div>
+
+              {/* Secret Meetings */}
+              <div className="animate-slideUp" style={{ animationDelay: '0.6s' }}>
+                <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8">
+                  <h2 className="text-3xl font-bold text-yellow-300 mb-4"
+                      style={{ fontFamily: 'Arial, sans-serif' }}>
+                    Between Two Lakes
+                  </h2>
+                  <p className="text-white text-lg leading-relaxed">
+                    They secretly began to meet at an abandoned shepherd's hut between two mountain 
+                    lakes. Three months living in between, Estelle playing the obedient daughter by 
+                    day and Matthieu the silent protector, but at night they were just two souls who 
+                    found each other in a world set to keep them apart.
+                  </p>
+                </div>
+              </div>
+
+              {/* Tragedy */}
+              <div className="animate-slideUp" style={{ animationDelay: '0.8s' }}>
+                <div className="bg-gradient-to-br from-red-600/30 to-red-900/30 backdrop-blur-sm rounded-3xl p-8 border-2 border-red-500/50">
+                  <h2 className="text-3xl font-bold text-red-300 mb-4"
+                      style={{ fontFamily: 'Arial, sans-serif' }}>
+                    The Price of Love
+                  </h2>
+                  <p className="text-white text-lg leading-relaxed mb-4">
+                    But fate has a cruel sense of timing. Lord Beaumont had arranged for Estelle to 
+                    be married to the son of a duke from Marseille. When she refused, her father 
+                    locked her in the tower of his estate.
+                  </p>
+                  <p className="text-white text-lg leading-relaxed mb-4">
+                    Matthieu, desperate and foolish with love, one stormy night, came to free her. 
+                    The guards caught him climbing the wall of the tower. Infuriated, Lord Beaumont 
+                    ordered Matthieu to be executed at dawn.
+                  </p>
+                  <p className="text-white text-lg leading-relaxed">
+                    Estelle watched from her window, screaming until her voice was hoarse, while her 
+                    father's heart remained stone. Within a week, she was pronounced dead of a broken 
+                    heart, though servants whispered she'd willed herself to join Matthieu.
+                  </p>
+                </div>
+              </div>
+
+              {/* Transformation */}
+              <div className="animate-slideUp" style={{ animationDelay: '1s' }}>
+                <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8">
+                  <h2 className="text-3xl font-bold text-yellow-300 mb-4"
+                      style={{ fontFamily: 'Arial, sans-serif' }}>
+                    The Curse
+                  </h2>
+                  <p className="text-white text-lg leading-relaxed mb-4">
+                    A hundred years later, a farmer bought the land between the lakes. Two cows were 
+                    born on the same night, one with markings like midnight sky, the other with a 
+                    white star on her forehead. These cows were inseparable, always grazing side by 
+                    side, always resting under the same tree.
+                  </p>
+                  <p className="text-white text-lg leading-relaxed">
+                    When one died of old age, the other followed within a day. This pattern repeated 
+                    for generations: two cows, always together, always dying within days of each other.
+                  </p>
+                </div>
+              </div>
+
+              {/* Cow illustrations */}
+              <div className="flex justify-center gap-8 my-12">
+                <div className="text-center">
+                  <div className="w-24 h-24 rounded-2xl bg-gray-900 flex items-center justify-center animate-breathe">
+                    <div className="text-4xl">🐄</div>
+                  </div>
+                  <p className="text-white text-sm mt-2">Matthieu</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-24 h-24 rounded-2xl bg-white flex items-center justify-center animate-breathe"
+                       style={{ animationDelay: '0.5s' }}>
+                    <div className="text-4xl">🐄</div>
+                    <div className="absolute">
+                      <svg width="20" height="20" viewBox="0 0 20 20" className="animate-twinkle">
+                        <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="#fbbf24" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="text-white text-sm mt-2">Estelle</p>
+                </div>
+              </div>
+
+              {/* Final message */}
+              <div className="animate-slideUp" style={{ animationDelay: '1.2s' }}>
+                <div className="bg-gradient-to-br from-purple-600/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-8 border-2 border-purple-400/50">
+                  <p className="text-white text-xl leading-relaxed text-center italic">
+                    The villagers came to believe that Estelle and Matthieu were granted neither 
+                    heaven nor hell but a state in between. Cursed to live as beasts, never to speak 
+                    their love, never to touch as humans touch, but at least together.
+                  </p>
+                </div>
+              </div>
+
+              {/* Moral */}
+              <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-10 text-center">
+                <h2 className="text-3xl font-bold text-yellow-300 mb-6"
+                    style={{ fontFamily: 'Arial, sans-serif' }}>
+                  Eternal Longing
+                </h2>
+                <p className="text-white text-lg leading-relaxed mb-4">
+                  To this day, the two lakes remain beneath the mountains off the coast of Nice. 
+                  The locals call them the Lakes of Eternal Longing. Some say if you visit at sunset, 
+                  you'll see two cows graze in the valley between them, always together, forever 
+                  paying the price for the audacity to love across a line that society drew in the sand.
+                </p>
+                <p className="text-yellow-200 text-base leading-relaxed italic">
+                  Some loves are neither blessed nor cursed but merely transmuted into something 
+                  eternal, patient, and forever incomplete.
+                </p>
+              </div>
+
+            </div>
+
+            {/* Bottom stars decoration */}
+            <div className="flex justify-start gap-4 px-12 pb-8">
+              <svg width="30" height="30" viewBox="0 0 20 20" className="animate-twinkle">
+                <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="#fbbf24" />
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" className="animate-twinkle" style={{ animationDelay: '0.5s' }}>
+                <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="#fbbf24" />
+              </svg>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.3; transform: scale(0.8); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        @keyframes ripple {
+          0%, 100% { transform: scale(1); opacity: 0.6; }
+          50% { transform: scale(1.15); opacity: 0.8; }
+        }
+
+        @keyframes heartbeat {
+          0%, 100% { transform: scale(1); }
+          25% { transform: scale(1.1); }
+          50% { transform: scale(1); }
+        }
+
+        @keyframes breathe {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+
+        @keyframes spinSlow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        .animate-fadeIn {
+          animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .animate-slideUp {
+          animation: slideUp 1s ease-out forwards;
+        }
+
+        .animate-twinkle {
+          animation: twinkle 2s ease-in-out infinite;
+        }
+
+        .animate-ripple {
+          animation: ripple 3s ease-in-out infinite;
+        }
+
+        .animate-heartbeat {
+          animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        .animate-breathe {
+          animation: breathe 3s ease-in-out infinite;
+        }
+
+        .animate-spin-slow {
+          animation: spinSlow 20s linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+}
