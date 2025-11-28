@@ -1,0 +1,326 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1080px;
+            margin: 0 auto;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        .card-wrapper {
+            margin: 2rem;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6, #06b6d4);
+            padding: 6px;
+        }
+
+        .card-inner {
+            border-radius: 36px;
+            background: linear-gradient(180deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            overflow: hidden;
+        }
+
+        .title-wrapper {
+            margin: 2rem 2rem 3rem 2rem;
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6, #06b6d4);
+            padding: 4px;
+            transform: perspective(400px) rotateX(5deg);
+        }
+
+        .title-inner {
+            background: linear-gradient(to bottom right, #2563eb, #3b82f6);
+            border-radius: 22px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .title-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fcd34d;
+            text-align: center;
+            flex: 1;
+            text-shadow: 0 0 20px rgba(252, 211, 77, 0.5);
+            letter-spacing: 0.05em;
+        }
+
+        .content {
+            padding: 0 3rem 5rem 3rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+        .section:nth-child(6) { animation-delay: 1s; }
+        .section:nth-child(7) { animation-delay: 1.2s; }
+
+        .text {
+            color: white;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: #fcd34d;
+            font-weight: 600;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .box-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #fcd34d;
+            margin-bottom: 1rem;
+        }
+
+        .quote-box {
+            background: linear-gradient(to bottom right, rgba(147, 51, 234, 0.3), rgba(219, 39, 119, 0.3));
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 2px solid rgba(168, 85, 247, 0.5);
+        }
+
+        .quote-text {
+            color: white;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .tragedy-box {
+            background: linear-gradient(to bottom right, rgba(220, 38, 38, 0.3), rgba(127, 29, 29, 0.3));
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 2px solid rgba(239, 68, 68, 0.5);
+        }
+
+        .tragedy-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #fca5a5;
+            margin-bottom: 1rem;
+        }
+
+        .moral-box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .moral-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #fcd34d;
+            margin-bottom: 1.5rem;
+        }
+
+        .moral-text {
+            color: white;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .moral-italic {
+            color: #fef3c7;
+            font-size: 1rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .divider {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 2rem 0;
+        }
+
+        .dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: #fcd34d;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+        .dot:nth-child(4) { animation-delay: 0.6s; }
+        .dot:nth-child(5) { animation-delay: 0.8s; }
+
+        .heart-container {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .heart {
+            animation: heartbeat 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.6));
+        }
+
+        .lakes-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .lake {
+            width: 10rem;
+            height: 6rem;
+            border-radius: 50%;
+            background: rgba(34, 211, 238, 0.6);
+            filter: blur(8px);
+            animation: ripple 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .lake:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .lake::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(103, 232, 249, 0.4);
+            filter: blur(4px);
+        }
+
+        .cows-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .cow {
+            text-align: center;
+        }
+
+        .cow-box {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: breathe 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .cow-dark {
+            background: #1f2937;
+        }
+
+        .cow-light {
+            background: white;
+            animation-delay: 0.5s;
+        }
+
+        .cow-label {
+            color: white;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .star-badge {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+        }
+
+        .bottom-stars {
+            display: flex;
+            gap: 1rem;
+            padding: 0 3rem 2rem 3rem;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+        }
+
+        @keyframes ripple {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.15); opacity: 0.8; }
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .spin-slow {
+            animation: spinSlow 20s linear infinite;
+        }
